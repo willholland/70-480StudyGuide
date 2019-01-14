@@ -25,6 +25,22 @@
         </div>
     </header>
     <main>
+        <nav id="leftNav">
+            <header>Table of Contents</header>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#sectionElement">The Section Element</a></li>
+                <li><a href="#article">The Article Element</a></li>
+                <li><a href="#articlesAndSections">Articles and Sections</a></li>
+                <li><a href="#navElement">The Nav Element</a></li>
+                <li><a href="#headerElement">The Header Element</a></li>
+                <li><a href="#footerElement">The Footer Element</a></li>
+                <li><a href="#asideElement">The Aside Element</a></li>
+                <li><a href="#hGroupElement">The 'hgroup' Element</a></li>
+                <li><a href="#detailsElement">The Details Element</a></li>
+                <li><a href="#summaryElement">The Summary Element</a></li>
+            </ul>
+        </nav>
         <article>
             <heading id="content-header">
                 <h1>Implement and Manipulate Document Structures and Objects</h1>
@@ -77,10 +93,22 @@
                 <p>From the W3C Specification, the article element is defined as follow:</p>
                 <blockquote>The article element represents a self-contained composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.</blockquote>
                 <p>A bit of a mouthful, I believe the short version is that an article is any part of your document that is still coherent when everything else is taken away from your page.</p>
-                <p>The classic comparison would be to a new paper column, or an article from a magazine.</p>
+                <p>The classic comparison would be to a new papers column, or an article from a magazine. You can clip out a particular story (or comic) from the news paper and the same information is still conveyed.</p>
+            </section>
+            <section id="articlesAndSections">
+                <h1>Articles and Sections</h1>
+                <p>So, here's an interesting situation. An &lt;article&gt; tag can contain any number of &lt;section&gt; tags. Additionally, &lt;section&gt; tags can contain any number of &lt;article&gt; tags. And both elements can contain other instances of the same element. Having sections within sections makes lexical sense. Articles within articles less so, at least for me...but you can certainly do it.</p>
+                <p>So, should this page be a "Skills Measured" section with an article for each skill, or is it a single article with a section for each skill?</p>
+                <p>I focused on my intent that the contents on this page were meant to be kept together as one big article. While some sections could certainly stand on their own merit, others (such as this section) cannot.</p>
+                <p>I think the specifications for these elements, and that fact that each can contain the other, suggests that there's more than one "right" way...which makes perfect sense. Sections of news papers consist of articles, and each article in a newspaper can contain multiple sections (like an introduction, body, and summary).</p>
             </section>
             <section id="navElement">
                 <h1>The Nav Element</h1>
+                <p>Again, the description from W3</p>
+                <blockquote>The nav element represents a section of a page that links to other pages or to parts within the page: a section with navigation links.</blockquote>
+                <p>Simple enough, right? This element is just used to denote a group of links used for navigational purposes.</p>
+                <p>There are, however, situations where you should not use the &lt;nav&gt; element to group a list of links. If you have a list of links, such as references or "More like this" links, those should not be grouped by the nav element.</p>
+                <p>Any "global" navigation links, such as those at the top of this page, or links used to help navigate the structure of the current document like the ones on the left column, should be contained within the nav element.</p>
             </section>
             <section id="headerElement">
                 <h1>The Header Element</h1>

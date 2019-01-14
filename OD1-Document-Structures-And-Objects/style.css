@@ -1,8 +1,8 @@
 main{
     width:100%;
     display: grid;
-    grid-column-gap:50px;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 5fr;
+    margin-top: 20px;
 }
 .italic{
     font-style: italic;
@@ -18,7 +18,7 @@ main{
 }
 
 main > article{
-    grid-column-start: 2
+    grid-column-start: 2;
 }
 #content-header > * {
     margin-top: 5px;
@@ -44,6 +44,26 @@ blockquote{
     padding: 15px;
     background: lightgrey;
     font-style: italic; 
-    
-    
+}
+#leftNav{
+    grid-column-start: 1;
+    position:fixed;
+    /* margin-top: 20px; */
+}
+#leftNav li{
+    display: block;
+    margin: 5px 0px;
+}
+#leftNav ul{
+    margin-top: 0px;
+}
+#leftNav a{
+    text-decoration: none;
+    color: black;
+}
+#leftNav a:hover{
+    text-decoration: underline;
+}
+#leftNav a:active{
+    background:#4580BA;
 }
