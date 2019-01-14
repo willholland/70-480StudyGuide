@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body>
+        <header>This is my page header, where my logo and site title would go.</header>
+        <nav>This is my navigation section, where I would put links</nav>
+        <main>
+            <p>This is the 'main' content section, where all of the content unique to this page belongs.</p>
+            <article>
+                <hgroup>
+                    <h1>Article Headings</h1>
+                    <h2>In an hgroup element</h2>
+                </hgroup>
+                <p>This article content discusses the use of the &lt;hgroup&gt; element to display it's Title and Subtitle</p>
+                <aside>As an aside, you'll soon soon see that I could have used the &lt;header&gt; tag instead.</aside>
+            </article>
+            <article>
+                <header>
+                    <h1>Second Article</h1>
+                    <h2>Using a header element</h2>
+                </header>
+                <p>The purpose of this particular page is to demonstrate how to use the HTLM5 sementic tags to properly structure a HTML document.</p>
+                <p>According to <a href="https://www.microsoft.com/en-us/learning/exam-70-480.aspx">the description of 70-480 on Microsoft's site</a>, the first objective domain should cover the following concepts:
+                    <ul>
+                        <li>Create the document structure by using HTML
+                            <ul>
+                                <li>Structure the UI by using semantic markup, including markup for search engines and screen readers, such
+                                    as Section, Article, Nav, Header, Footer, and Aside; create a layout container in HTML</li>
+                            </ul>
+                        </li>
+                        <li>Write code that interacts with UI controls
+                            <ul>
+                                <li>Programmatically add and modify HTML elements; implement media controls; implement HTML5 canvas and SVG
+                                    graphics</li>
+                            </ul>
+                        </li>
+                        <li>Apply styling to HTML elements programmatically
+                            <ul>
+                                <li>Change the location of an element; apply a transform; show and hide elements</li>
+                            </ul>
+                        </li>
+                        <li>Implement HTML5 APIs
+                            <ul>
+                                <li>Implement storage APIs and the Geolocation API</li>
+                            </ul>
+                        </li>
+                        <li>Establish the scope of objects and variables
+                            <ul>
+                                <li> Define the lifetime of variables; keep objects out of the global namespace; use the “this” keyword to
+                                    reference an object that fired an event; scope variables locally and globally</li>
+                            </ul>
+                        </li>
+                        <li>Create and implement objects and methods
+                            <ul>
+                                <li>Implement native objects; create custom objects and custom properties for native objects using
+                                    prototypes and functions; inherit from an object; implement native methods and create custom methods</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>This page has been created to help demonstrate how the new HTLM tags specifically mentioned can and should be used to help describe the contents on your page. Properly structuring your content can greatly increase relevancy with search engines, and helps make your content more accessible for the visually impaired. The only specifically mentioned tag that has yet to be used is the &lt;footer&gt; tag, which we'll correct momentarily</p>
+                <p>Before we get to the footer, there are two more elements that I feel need to be known: The &lt;Details&gt; & &lt;Summary&gt; tags.</p>
+                <p>These two tags are related and should be used together. The details tag creates a collapsable section that users can decide to expand to get more information. The summary tag is placed within the details tag and is used to describe the content within the details. Below is an example</p>
+                <details>
+                    <summary>This is a summary. Expand for full details</summary>
+                    <ol>
+                        <li>Detail #1</li>
+                        <li>Detail #2</li>
+                        <li>Detail #3</li>
+                    </ol>
+                    <p>The more you know...</p>
+                </details>
+            </article>
+            <footer>This is my footer, where you would include your typical page footer content, such as contact, support, and/or legal information</footer>
+        </main>
+    </body>
+</html>
