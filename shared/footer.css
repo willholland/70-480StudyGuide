@@ -1,0 +1,11 @@
+body > footer { 
+    position:absolute;        
+    margin: 0px -20px -20px -8px;
+    width: 100%;   
+    min-height: 50px;
+    border-top: 2px solid black;    
+    background-color:#4580BA;    
+    display:flex;
+    align-items: center; 
+    justify-content: center;
+}

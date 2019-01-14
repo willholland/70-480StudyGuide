@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../shared/header.css">
+    <link rel="stylesheet" href="../shared/footer.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="../shared/images/TWProfile.png" id="mugshot" alt="Mug Shot">
+        <div id="headerContents">
+            <hgroup>
+                <h1>Programming in HTML5 with JavaScript and CSS3</h1>
+                <h2>Exam 70-480 Study Guide</h2>
+            </hgroup>
+            <nav>
+                <ul>
+                    <li><a href="#">Link #1</a></li>
+                    <li><a href="#">Link #2</a></li>
+                    <li><a href="#">Link #3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <article>
+            <heading id="content-header">
+                <h1>Implement and Manipulate Document Structures and Objects</h1>
+                <h2>Create the document structure by using HTML</h2>
+                <time>January 14, 2019</time>
+            </heading>
+            <section id="introduction">
+                <p>
+                    In this article, we'll be covering the first skill covered under the first objective domain <span
+                        class="italic bold">Implement and Manipulate Document Structures and Objects</span>: Create the
+                    document structure by using HTML.
+                </p>
+                <p>According to <a href="https://www.microsoft.com/en-us/learning/exam-70-480.aspx#syllabus-1" target="_blank">Microsoft</a>,
+                    the skills measured are as follows:</p>
+                <blockquote>
+                    Structure the UI by using semantic markup, including markup for search engines and screen readers,
+                    such as Section, Article, Nav, Header, Footer, and Aside; create a layout container in HTML
+                </blockquote>
+                <p>
+                    This page has been built using all of the specifically mentioned elements, as well as some other
+                    new elements introduced in HTML 5. Information regarding each elements will be
+                    included in it's own section, and I'll try to do my best to explain when and why to use each
+                    element.
+                </p>
+                <p>An important thing to keep in mind is that, though I have styled these pages, these new elements are
+                    meant to convey the structure of the document and not the appearance of the content.</p>
+            </section>
+            <section id="sectionElement">
+                <h1>The Section Element</h1>
+                <p>The <span class='italic bold'>&lt;section&gt;</span> element, according to W3, represents "a generic
+                    section of a document or application. A section, in this context, is a thematic grouping of
+                    content, typically with a heading."</p>
+                <p>Common comparisons include chapters in a book or a home page being split into an introduction, news,
+                    and contact information.</p>
+                <p>
+                    The first question I asked myself was <span class="italic">"How is this different than a 'div'
+                        tag?"</span> After all, "a generic section of a documnet" sounds like a div to me. The major
+                    difference is that the section element
+                    is meant to group content that are contextually related.
+                </p>
+                <p>As an example, each element on this place is logically grouped together into it's own section.
+                    Everything in this "Section Element" section, and all of it's contents, belong to one section
+                    element. The "Article" section belongs to anotther</p>
+                <p>So, when do you use a div or span? Basically, when you're wanting to call out a specific piece or
+                    group of content for styling purposes only. All of the italicized text was styled via a class on a
+                    &lt;span&gt; tag.</p>
+            </section>
+            <section id="articleElement">
+                <h1>The Article Element</h1>
+                <p>From the W3C Specification, the article element is defined as follow:</p>
+                <blockquote>The article element represents a self-contained composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.</blockquote>
+                <p>A bit of a mouthful, I believe the short version is that an article is any part of your document that is still coherent when everything else is taken away from your page.</p>
+                <p>The classic comparison would be to a new paper column, or an article from a magazine.</p>
+            </section>
+            <section id="navElement">
+                <h1>The Nav Element</h1>
+            </section>
+            <section id="headerElement">
+                <h1>The Header Element</h1>
+            </section>
+            <section id="footerElement">
+                <h1>The Footer Element</h1>
+            </section>
+            <section id="asideElement">
+                <h1>The Aside Element</h1>
+            </section>
+            <section id="hGroupElement">
+                <h1>The 'hgroup' Element</h1>
+            </section>
+            <section id="detailsElement">
+                <h1>The Details Element</h1>
+            </section>
+            <section id="summaryElement">
+                <h1>The Summary Element</h1>
+            </section>
+            <footer>
+                <details>
+                    <summary>Referenced Sources</summary>
+                <ol>                    
+                    <li>W3C HTML 5 Specifications: <a href="https://www.w3.org/TR/2011/WD-html5-20110525/sections.html">https://www.w3.org/TR/2011/WD-html5-20110525/sections.html</a></li>
+                </ol>
+                </details>
+            </footer>
+        </article>
+    </main>
+    <footer>This information has been gathered, by me, from a number of sources for the sole purpose of practing the
+        skills covered.
+    </footer>
+</body>
+
+</html>

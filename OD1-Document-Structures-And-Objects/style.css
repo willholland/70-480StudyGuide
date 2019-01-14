@@ -1,0 +1,49 @@
+main{
+    width:100%;
+    display: grid;
+    grid-column-gap:50px;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+.italic{
+    font-style: italic;
+}
+.bold{
+    font-weight:bold;
+}
+.indent-left {
+    margin-left: 200px;
+}
+.indent-right {
+    margin-left: 200px;
+}
+
+main > article{
+    grid-column-start: 2
+}
+#content-header > * {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+#content-header > h1 {
+    font-size: 2em;
+} 
+#content-header > h2{
+    font-size: 1.5em;
+}
+#content-header > time{
+    font-style: italic;
+    font-weight: bold;
+}
+
+article > section > h1{
+    border-bottom: 1px solid black;
+}
+
+blockquote{
+    border-radius: 25px;
+    padding: 15px;
+    background: lightgrey;
+    font-style: italic; 
+    
+    
+}
