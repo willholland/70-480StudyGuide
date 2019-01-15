@@ -1,5 +1,11 @@
 main{
+    position: absolute; 
+    top: 108px;
+    bottom: 50px;
+    left: 0px;
+    right: 0px;
     width:100%;
+    overflow:auto;
     display: grid;
     grid-template-columns: 1fr 5fr;
     margin-top: 20px;
@@ -52,7 +58,8 @@ blockquote{
 }
 #leftNav li{
     display: block;
-    margin: 5px 0px;
+    /* margin: 5px 0px; */
+    padding: 5px 0px;
 }
 #leftNav ul{
     margin-top: 0px;
@@ -66,4 +73,33 @@ blockquote{
 }
 #leftNav a:active{
     background:#4580BA;
+}
+#asideElement{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 3;
+    align-items: center;
+}
+#asideElement div:nth-of-type(2){
+    grid-column-start: span 1;
+}
+#asideElement div{
+    grid-column-start: span 2;
+}
+aside.pullquote{
+    grid-column-start: 2; 
+    grid-row-start: 2;
+    grid-row-end: 2;
+    padding: 25px; 
+    font-size: 2em;
+    font-style: italic;
+    font-weight: bold;
+}
+#detailsElement details{
+    margin-left: 25px;
+}
+article footer{
+    border-top: 2px solid black;
+    padding-top: 25px;
+    margin-bottom: 25px;
 }

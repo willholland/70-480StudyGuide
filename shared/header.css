@@ -1,7 +1,11 @@
 body > header {
+    position:absolute;
+    top:0px;
+    left: 0px;
+    right: 0px;
+    height: 108px;
     border-bottom: 2px solid black;    
     background-color:#4580BA;
-    margin: -8px -8px 0px -8px;
     display:grid;
     grid-template-columns: 1fr 10fr;
     grid-gap: 0px;

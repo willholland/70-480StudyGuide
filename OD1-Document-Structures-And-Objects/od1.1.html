@@ -20,6 +20,7 @@
                     <li><a href="#">Link #1</a></li>
                     <li><a href="#">Link #2</a></li>
                     <li><a href="#">Link #3</a></li>
+                    <li><a href="#">Link #4</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,9 +37,9 @@
                 <li><a href="#headerElement">The Header Element</a></li>
                 <li><a href="#footerElement">The Footer Element</a></li>
                 <li><a href="#asideElement">The Aside Element</a></li>
-                <li><a href="#hGroupElement">The 'hgroup' Element</a></li>
                 <li><a href="#detailsElement">The Details Element</a></li>
                 <li><a href="#summaryElement">The Summary Element</a></li>
+                <li><a href="#summary">Summary</a></li>
             </ul>
         </nav>
         <article>
@@ -112,28 +113,69 @@
             </section>
             <section id="headerElement">
                 <h1>The Header Element</h1>
+                <p>I think this is probably one of the most self explanatory elements in all of HTML. Nevertheless, here's the W3 Schools summary of the element</p>
+                <blockquote>The &lt;header&gt; element represents a container for introductory content or a set of navigational links.</blockquote>
+                <p>The header tag should be used as frequently as it makes sense. Each article or section should probably contain a header. Likewise your site itself may have a "main" heading, like the one at the top of this page.</p>
+                <p>In addition to the "masthead" heading at the top featuring my mugshot and "global" navigational elements, the left navigation contains a header element ("Table of Contents").</p>
+                <p>There are some suggestions that the header can be overused and should only be used when you have more than just a single h1..h6 element.<sup>[3]</sup> As a developer, less code seemed good, so none of my section headers are contained within a header tag.</p>
             </section>
             <section id="footerElement">
                 <h1>The Footer Element</h1>
+                <p>The only element probably more self explantory than header would be footer. Here's what W3 Schools says about it.</p>
+                <blockquote>The &lt;footer&gt; tag defines a footer for a document or section</blockquote>
+                <p>Basically, including informational or navigational elements for the content the footer is contained within</p>
+                <p>This page has two examples of a footer element.</p>
+                <p>First is the "Details" section at the bottom of this content area. This section contains links to the sources I referenced in this document.</p>
+                <p>The second example is the footer at the very bottom of the page. Right now, it has some pseudo-legal footer sounding stuff, but it would be common to see information about the site author (name, email, etc..), links back to the top of the page, and/or copyright information. </p>
             </section>
             <section id="asideElement">
-                <h1>The Aside Element</h1>
-            </section>
-            <section id="hGroupElement">
-                <h1>The 'hgroup' Element</h1>
+                <div>
+                    <h1>The Aside Element</h1>
+                    <p>The &lt;aside&gt; element is a new semantic element used to suggest that the content contained within is somewhat related to the current topic, but not necessarily a part of the content. Confusing, I know. </p>
+                    <p>Here's how the folks at W3 put it.</p>
+                    <blockquote>The &lt;aside&gt; element represents a section of a page that consists of content that is tangentially related to the content around the aside element, and which could be considered separate from that content.</blockquote>
+                </div>
+                <div>
+                    <p>Think of an aside like that moment in a conversation where you're recounting the events of a car trip, and when you get to the part where <span class="italic">Stairway to Heaven</span> came on the radio, you make some commentary about how much you love Led Zepplin...that commentary is an aside.</p>
+                </div>
+                <div>
+                    <p>Or, for perhaps a less personal example, if you've ever read a magazine article and seen those englarged excerpted quotes (called "pull quotes")...that's another form of an aside. See the aside just above here for a live one!</p>
+                </div>
+                <aside class="pullquote">"Asides can be styled to do some neat stuff" - Me</aside>
             </section>
             <section id="detailsElement">
                 <h1>The Details Element</h1>
+                <p>This is a neat little addition to HTML. As per usual, here's the W3 details</p>   
+                <blockquote>The details element represents a disclosure widget from which the user can obtain additional information or controls.</blockquote>
+                <p>What the details element actually does is create a collapsed section of content that the user can choose to expand to reveal more details. See below.</p>
+                <details>
+                    <p>Here are the details you requested</p>
+                </details>
             </section>
             <section id="summaryElement">
                 <h1>The Summary Element</h1>
+                <p>I heavily considered placing this element in with the details element, 
+                    because it's meant to only be used as the first child of a &lt;details&gt; element, but decided that it warrented it's own section 
+                    due to the just to point that out.</p>
+                <blockquote>The summary element represents a summary, caption, or legend for the rest of the contents of the summary element's parent details element.</blockquote>
+                <p>When you use a summary tag witin a details tag, it replaces the default "Details" text (as seen in the previous section's example) with whatever text you supply as the contents of the summary tag.
+                    for a specific example, please look at the "Referenced Sources" details element at the bottom of this page.
+                </p>
+            </section>
+            <section id="summary">
+                <h1>Summary</h1>
+                <p>While this list doesn't include all of the latest additions to the HTML specifications, it covers the ones I've seen repeatedly mentioned in regards to preparing for 70-480</p>
+                <p>Otheres, such as &lt;svg&gt;, will be covered in a different section</p>
+                <p>If you feel there's a glaring ommission or mistake, please feel free to submit a pull request.</p>
             </section>
             <footer>
                 <details>
                     <summary>Referenced Sources</summary>
-                <ol>                    
-                    <li>W3C HTML 5 Specifications: <a href="https://www.w3.org/TR/2011/WD-html5-20110525/sections.html">https://www.w3.org/TR/2011/WD-html5-20110525/sections.html</a></li>
-                </ol>
+                    <ol>                    
+                        <li>W3C - HTML 5 Specifications: <a href="https://www.w3.org/TR/2011/WD-html5-20110525/sections.html">https://www.w3.org/TR/2011/WD-html5-20110525/sections.html</a></li>
+                        <li>W3 Schools - HTML &lt;header&gt; Tag: <a href="https://www.w3schools.com/tags/tag_header.asp">https://www.w3schools.com/tags/tag_header.asp</a></li>
+                        <li>html5 Doctor - Avoiding common HTML5 mistakes<a href="http://html5doctor.com/avoiding-common-html5-mistakes/">http://html5doctor.com/avoiding-common-html5-mistakes/</a></li>
+                    </ol>
                 </details>
             </footer>
         </article>
