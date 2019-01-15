@@ -52,7 +52,6 @@
                         <li><a href="#section3-svg">SVG</a></li>
                     </ul>
                 </li>
-                <li><a href="#summary">Summary</a></li>
             </ul>
         </nav>
         <article id="od12">
@@ -240,7 +239,7 @@
 <pre><code class="prettyprint">&lt;video width="50%" controls poster="media/ManusFatherOfTheAbyss.jpg"&gt;
     &lt;source src="media/video.mp4" type="video/mp4"&gt;
     Your browser does not support the video tag.
-<&lt;video&gt;</code></pre>                        
+&lt;video&gt;</code></pre>                        
                     </div>
                     <p>...which produces the result below</p>
                     <video controls poster="media/ManusFatherOfTheAbyss.jpg">
@@ -319,21 +318,51 @@
                         The remaining lines of code are used to draw the three shapes you see. You'll notice that each set starts with the line <code class="prettyprint">ctx.fillStyle = "rgba(255,0,0,.5)"</code>
                         which is just specifying the red, green, blue, and alpha (opacity) used to fill in the shape. 
                     </p>
+                    <p>The <code class="prettyprint">ctx.fillRect(10, 10, 75, 75)</code> creates a 75x75 rectangle, whose top corner starts 10pixels down and 10 to the right.</p>
+                    <p>
+                        The next two shapes both start with <code>ctx.beginPath()</code>, which says we're going to begin drawing, and end with <code>ctx.fill()</code> which says that we're done drawing, go ahead and render everything.
+                        What I personally find interesting is that their is no fillArc method, but I digress.
+                    </p>
+                    <p>
+                        For the circle, we're using the <code>ctx.arc(x, y, r, angleStart, angleEnd)</code>. 
+                        The x and y parameters indicate where the center of the circle will be positioned.
+                        The r parameter is the radius (how many pixels from the center to the edge). 
+                        The last two parameters, angleStart and angleEnd, indicate the angle at which to start and stop 
+                        drawing. What's important to note is that these values are in radians (and not degrees). 
+                    </p>
+                    <p>
+                        The final shape, a triangle, we're starting our drawing at the point (90, 60) with <code>ctx.moveTo(90,60)</code>
+                        then drawing a line from (90,60) to (30, 130) with <code>ctx.lineTo(30,130)</code>, and then another
+                        from (30,130) to (150, 130) with <code>ctx.lineTo(150,130)</code>. You may notice that we've only drawn
+                        two lines. That's because the <code>ctx.fill()</code> function will connect the dots on our behalf.
+                    </p>
                 </section>
                 <section id="section3-svg">
                     <h2>SVG Graphics</h2>
+                    <p>
+                        SVG elements are, in my opinion, a little more straight forward than the canvas element as they don't 
+                        require any javascript to render. Take the following example that I've shamelessly lifted from w3schools.
+                    </p>
+                    <div>
+<pre><code class="prettyprint">&lt;svg width="300" height="200"&gt;
+    &lt;polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:#4580BA;stroke:black;stroke-width:5;fill-rule:evenodd;" /&gt;
+&lt;/svg&gt;
+</code></pre>
+                    </div>
+                    <svg width="300" height="200">
+                        <polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:#4580BA;stroke:black;stroke-width:5;fill-rule:evenodd;" />
+                    </svg>
+                    <p>
+                        Similar to how we drew the triangle in the canvas demo, the <code>points</code> attribute specifies a series of points, connected by lines. 
+                        The style attribute dictates how to color things.                        
+                    </p>
+                    <p>
+                        And, of course, there's a "rect" element as well as an ellipse and circle (thankfully) element. Check out 
+                        <a href="https://www.w3schools.com/html/html5_svg.asp">https://www.w3schools.com/html/html5_svg.asp</a> for more
+                        examples and some details on comparing SVG to the Canvas element.
+                    </p>
                 </section>
             </section>
-            <section id="summary">
-                <h1>Summary</h1>
-            </section>
-            <footer>
-                <details>
-                    <summary>Referenced Sources</summary>
-                    <ol>
-                    </ol>
-                </details>
-            </footer>
         </article>
     </main>
     <footer>This information has been gathered, by me, from a number of sources for the sole purpose of practing the
