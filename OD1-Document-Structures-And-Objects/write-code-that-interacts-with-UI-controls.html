@@ -30,9 +30,28 @@
             <header>Table of Contents</header>
             <ul>
                 <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#section1">Add & Modify HTML elements</a></li>
-                <li><a href="#section2">Media Controls</a></li>
-                <li><a href="#section3">Canvas & SVG Graphics</a></li>
+                <li>
+                    <a href="#section1">Add & Modify HTML elements</a>
+                    <ul>
+                        <li><a href="#section1-getting">Getting DOM Elements</a></li>
+                        <li><a href="#section1-adding">Adding elements to the DOM</a></li>
+                        <li><a href="#section1-modifying">Modifying DOM elements</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#section2">Media Controls</a>
+                    <ul>
+                        <li><a href="#section2-Audio">Audio</a></li>
+                        <li><a href="#section2-Video">Video</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#section3">Canvas & SVG Graphics</a>
+                    <ul>
+                        <li><a href="#section3-canvas">Canvas</a></li>
+                        <li><a href="#section3-svg">SVG</a></li>
+                    </ul>
+                </li>
                 <li><a href="#summary">Summary</a></li>
             </ul>
         </nav>
@@ -73,7 +92,8 @@
                     </div>
                 </div>
                 <p>Here's the code that makes this example work.</p>
-                <div class="codewrapper"><pre><code class="prettyprint lang-js">(function(){
+                <div class="codewrapper">
+<pre><code class="prettyprint lang-js">(function(){
     var btnAdd = document.getElementById("addElement");
     var btnRemove = document.getElementById("removeElement");
     var canvas = document.getElementById("section1DemoContainer").childNodes[1];
@@ -110,7 +130,7 @@
                     adding new elements, changing the contents of an element, and removing elements. 
                 </p>
                 <p>There's also some stuff happening with event handling, but that'll be covered later.</p>
-                <section id="getting-dom-elements">
+                <section id="section1-getting">
                     <h2>Getting DOM Elements</h2>
                     <p>
                         Obviously, before we can manipulate an element of the DOM, we must first find it. In this code
@@ -145,7 +165,7 @@
                         doesn't typically lend itself to being useful.
                     </p>
                 </section>
-                <section id="adding-dom-elements">
+                <section id="section1-adding">
                     <h2>Adding elements to the DOM</h2>
                     <p>There are two important elements you need in order to add a new element to the DOM.</p>
                     <p>
@@ -160,7 +180,7 @@
                         allows us to add a new rectangle to the canvas. 
                     </p>
                 </section>
-                <section id="modifying-dom-elements">
+                <section id="section1-modifying">
                     <h2>Modifying DOM elements</h2>
                     <p>What a broad topic. The demo above modifies DOM elements in three ways.</p>
                     <p>First, adding new elements is technically modifying the canvas element, but we've already counted that.</p>
@@ -171,11 +191,138 @@
             </section>
             <section id="section2">
                 <h1>Media Controls</h1>
-                <p>Javascript</p>
+                <p>For this section, we'll be discussing the new &lt;audio&gt; and the &lt;video&gt; elements and how they can be used to 
+                    add some...well audio and video...to your page.
+                </p>
+                <section id="section2-Audio">
+                    <h2>Audio</h2>
+                    <div>                        
+                        <audio controls loop preload="auto">
+                            <source src="media/Onlap - Fight Like The Devil (Copyright Free Rock Music).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="trackName">Fight Like The Devil - Onlap</div>
+                    </div>
+                    <p>Audio is added your page via the &lt;audio&gt; tag, like so...</p>
+                    <div>
+                        <pre><code class="prettyprint">&lt;audio controls autoplay loop preload="auto"&gt;
+    &lt;source src="media/Onlap - Fight Like The Devil (Copyright Free Rock Music).mp3" type="audio/mpeg"&gt;
+    &lt;source src="media/Onlap - Fight Like The Devil (Copyright Free Rock Music).ogg" type="audio/ogg"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+                    </div>
+                    <p>
+                        The <code>controls</code> attribute is what allows the element to be rendered. Without it, the element exists but is not rendered, which could be useful
+                        if you wanted to create custom controls and use javascript to control the audio track. Custom controls are beyond the scope of 70-480, so I'll not be 
+                        covering them here.
+                    </p>
+                    <p>
+                        The <code>autoplay</code> and <code>loop</code> attributes do exactly what you would think. I'll point out that while the above code sample indicates that
+                        autoplay is enabled, the actual source for the rendered audio control does not. You're welcome.
+                    </p>
+                    <p>
+                        The <code>preload</code> attribute indicates when the browser should load the media. A value of "auto" indicates that the media should be loaded 
+                        when the page loads, while a value of "none" would wait for the media to be played before loading it. Apparently browsers are not required to respect
+                        the value, as it's seen as a request. I'm guessing that's to allow mobile devices to avoid consuming data unecessarily (think Facebook and their autoplay videos).
+                    </p>
+                    <p>
+                        The <code>&lt;source&gt;</code> specifies the file to play. If you have multiple version of the file, just in different formats (mp3, ogg, etc) you can add
+                        multiple source items, one after the other. The browser will play the first file whose format it can understand.
+                    </p>
+                    <p>
+                        Finally, after listing all of your audio files, you can add some text that would be displayed if none of the source files are supported by the browser.
+                    </p>
+                </section>
+                <section id="section2-Video">
+                    <h2>Video</h2>
+                    <p>Adding video to your HTML page is easier than ever. Take the following example...</p>
+                    <div>
+<pre><code class="prettyprint">&lt;video width="50%" controls poster="media/ManusFatherOfTheAbyss.jpg"&gt;
+    &lt;source src="media/video.mp4" type="video/mp4"&gt;
+    Your browser does not support the video tag.
+<&lt;video&gt;</code></pre>                        
+                    </div>
+                    <p>...which produces the result below</p>
+                    <video controls poster="media/ManusFatherOfTheAbyss.jpg">
+                        <source src="media/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>
+                        As is the case with the audio element, the <code>controls</code> attribute is what allows the user to interact with the video. However, unlike the audio element 
+                        failing to display the controls will result in the video thumbnail being displayed. 
+                    </p>
+                    <p>
+                        As for the thumbnail itself, the <code>poster</code> is an optional attribute allows you to specify an image to display until the video is started. If you 
+                        do not include a poster attribute, the first frame of the video will be used as the image.
+                    </p>
+                    <p>
+                        There are a few other attributes that can be placed on the <code>&lt;video&gt;</code> element, such as <code>autoplay</code>, <code>loop</code>, and <code>muted</code>
+                        ...all of  which do what they suggeset. The <code>preload</code> attribute is also valid here and, like audio, can be ignored by the browser.
+                    </p>
+                    <p>
+                        The source attribute, and the fallback text, work precisely as they do with the audio element so I won't rehash that here.
+                    </p>
+                </section>
             </section>
             <section id="section3">
                 <h1>Canvas & SVG Graphics</h1>
-                <p>Javascript</p>
+                <p>The last skills of this section cover the new &lt;canvas&gt; and &lt;svg&gt; elements.</p>
+                <p>Both of these elements can be used to add graphics or animation to your page.</p>
+                <section id="section3-canvas">
+                    <h2>Canvas</h2>
+                    <p>
+                        Think of the canvas element as a replacement for flash applications. It provides a way to "draw" 2D images on your page and, when combined with 
+                        javascript, can be used to create animations. As far as I understand, though, being able to animate a canvas object is not a measured skill, so 
+                        I'll not be touching on that particular subject.
+                    </p>
+                    <p>
+                        Also, before we get into samples, I want to call out this link that is specifically mentioned on the official page for Exam 70-480:  
+                        <a href="https://msdn.microsoft.com/en-us/hh534406">The developer's guide to HTTML5 Canvas</a> as it covers a number of entry-level topics regarding
+                        the use of the canvas element, and provides some nifty examples beyond what I'll include here.
+                    </p>
+                    <p>So, let's get to a demo.</p>
+                    <canvas id="canvas-demo"></canvas>
+                    <p>To create this effect, two parts are required: the HTML and Javascript. We'll look at the HTML first</p>
+                    <pre><code class="prettyprint">&lt;canvas id="canvas-demo"&gt;&lt;/canvas&gt;</code></pre>                    
+                    <p>
+                        That's all there is to it, at least on the HTML side. You could also specify the width and height property here
+                        but I prefer to leave that in my CSS. But where are all of those squares coming from, you might be wondering. 
+                        That's where javascript comes into play.
+                    </p>
+                    <div>
+<pre><code class="prettyprint lang-js">(function(){
+    var canvas = document.getElementById("canvas-demo");
+    var ctx = canvas.getContext("2d");
+        
+    ctx.fillStyle = "rgba(255,0,0,.5)"
+    ctx.fillRect(10, 10, 75, 75)
+    
+    ctx.fillStyle = "rgba(0,255,0,.5)"
+    ctx.beginPath();
+    ctx.arc(70, 70, 40, 0, 2 * Math.PI)
+    ctx.fill();
+        
+    ctx.fillStyle = "rgba(0,0,255,.5)"
+    ctx.beginPath();
+    ctx.moveTo(90, 60);
+    ctx.lineTo(30,130);
+    ctx.lineTo(150,130);
+    ctx.fill();    
+})();</code></pre>
+                    </div>
+                    <p>
+                        With the first two lines, we're first retrieving the canvas element we're wanting to draw on. 
+                        After that, we're establishing a 2d "drawing context". There are other kinds of contexts (3d isn't one of them), but '2d' is
+                        all I've seen mentioned in the context of 70-480.
+                    </p>
+                    <p>
+                        The remaining lines of code are used to draw the three shapes you see. You'll notice that each set starts with the line <code class="prettyprint">ctx.fillStyle = "rgba(255,0,0,.5)"</code>
+                        which is just specifying the red, green, blue, and alpha (opacity) used to fill in the shape. 
+                    </p>
+                </section>
+                <section id="section3-svg">
+                    <h2>SVG Graphics</h2>
+                </section>
             </section>
             <section id="summary">
                 <h1>Summary</h1>
@@ -194,5 +341,6 @@
     </footer>
 </body>
 <script src="scripts/add-modify-html-elements.js"></script>
+<script src="scripts/canvas.js"></script>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </html>
