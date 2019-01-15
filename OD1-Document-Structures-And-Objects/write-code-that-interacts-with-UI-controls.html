@@ -30,19 +30,13 @@
             <header>Table of Contents</header>
             <ul>
                 <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#sectionElement">The Section Element</a></li>
-                <li><a href="#article">The Article Element</a></li>
-                <li><a href="#articlesAndSections">Articles and Sections</a></li>
-                <li><a href="#navElement">The Nav Element</a></li>
-                <li><a href="#headerElement">The Header Element</a></li>
-                <li><a href="#footerElement">The Footer Element</a></li>
-                <li><a href="#asideElement">The Aside Element</a></li>
-                <li><a href="#detailsElement">The Details Element</a></li>
-                <li><a href="#summaryElement">The Summary Element</a></li>
+                <li><a href="#section1">Add & Modify HTML elements</a></li>
+                <li><a href="#section2">Media Controls</a></li>
+                <li><a href="#section3">Canvas & SVG Graphics</a></li>
                 <li><a href="#summary">Summary</a></li>
             </ul>
         </nav>
-        <article>
+        <article id="od12">
             <heading id="content-header">
                 <h1>Implement and Manipulate Document Structures and Objects</h1>
                 <h2>Write code that interacts with UI controls</h2>
@@ -51,33 +45,137 @@
             <section id="introduction">
                 <p>
                     In this article, we'll be covering the second skill covered under the first objective domain <span
-                        class="italic bold">Implement and Manipulate Document Structures and Objects</span> Write code that interacts with UI controls.
+                        class="italic bold">Implement and Manipulate Document Structures and Objects</span> Write code
+                    that interacts with UI controls.
                 </p>
                 <p>According to <a href="https://www.microsoft.com/en-us/learning/exam-70-480.aspx#syllabus-1" target="_blank">Microsoft</a>,
                     the skills measured are as follows:</p>
                 <blockquote>
-                        Programmatically add and modify HTML elements; implement media controls; implement HTML5 canvas and SVG graphics
+                    Programmatically add and modify HTML elements; implement media controls; implement HTML5 canvas and
+                    SVG graphics
                 </blockquote>
             </section>
             <section id="section1">
-                <h1>The Section Element</h1>
-                <p>The <span class='italic bold'>&lt;section&gt;</span> element, according to W3, represents "a generic
-                    section of a document or application. A section, in this context, is a thematic grouping of
-                    content, typically with a heading."</p>
-                <p>Common comparisons include chapters in a book or a home page being split into an introduction, news,
-                    and contact information.</p>
-                <p>
-                    The first question I asked myself was <span class="italic">"How is this different than a 'div'
-                        tag?"</span> After all, "a generic section of a documnet" sounds like a div to me. The major
-                    difference is that the section element
-                    is meant to group content that are contextually related.
+                <h1>Add & Modify HTML elements</h1>
+                <p>If you're reading this, I'm going to assume that you're atleast familiar with Javascript, and I'm going to skip
+                    a lot of the "JS 101" talk. Instead, I'm just going to dive into a demo. 
                 </p>
-                <p>As an example, each element on this place is logically grouped together into it's own section.
-                    Everything in this "Section Element" section, and all of it's contents, belong to one section
-                    element. The "Article" section belongs to anotther</p>
-                <p>So, when do you use a div or span? Basically, when you're wanting to call out a specific piece or
-                    group of content for styling purposes only. All of the italicized text was styled via a class on a
-                    &lt;span&gt; tag.</p>
+                <p>
+                    This demo is going to allow you to click a few buttons. One will add an element to the page, the other will remove them. 
+                    Both will update the "log" section. I'll include the code snippets below.  
+                </p>
+                <div id="section1DemoContainer">
+                    <div class="canvas"></div>
+                    <div class="log"></div>
+                    <div class="buttonRow">
+                        <button id="addElement">Add Element</button>
+                        <button id="removeElement">Remove Element</button>
+                    </div>
+                </div>
+                <p>Here's the code that makes this example work.</p>
+                <div class="codewrapper"><pre><code class="prettyprint lang-js">(function(){
+    var btnAdd = document.getElementById("addElement");
+    var btnRemove = document.getElementById("removeElement");
+    var canvas = document.getElementById("section1DemoContainer").childNodes[1];
+    var log = document.getElementById("section1DemoContainer").childNodes[3];
+
+    function SetLog(msg){
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        log.innerHTML = time + " - " + msg;
+    }
+
+    btnAdd.addEventListener("click", function(){
+        //Add a new div element to the canvas
+        var newDiv = document.createElement("div");
+        canvas.appendChild(newDiv);
+
+        //Update the log
+        SetLog("Added a new element");
+    });
+
+    btnRemove.addEventListener("click", function(){
+        if(canvas.hasChildNodes() && canvas.lastChild.tagName === "DIV"){
+            canvas.lastChild.remove();
+            SetLog("Removed the last element");
+        }
+        else{
+            SetLog("No elements to remove!")
+        }
+    });
+})();</code></pre>
+                </div>
+                <p>
+                    There's a little bit going on here, but I think the highlights relevant to the topic at hand are retrieving DOM elements, 
+                    adding new elements, changing the contents of an element, and removing elements. 
+                </p>
+                <p>There's also some stuff happening with event handling, but that'll be covered later.</p>
+                <section id="getting-dom-elements">
+                    <h2>Getting DOM Elements</h2>
+                    <p>
+                        Obviously, before we can manipulate an element of the DOM, we must first find it. In this code
+                        sample, we're selecting elements in one of three ways. </p>
+                    <p>
+                        First, there's <code class="prettyprint">document.getElementById(...);</code>, which
+                        allows us to select a single element by it's ID property. It's important to note that the getElementById
+                        function
+                        will only return a single DOM node, as you shouldn't have more than one element with the same ID.
+                    </p>
+                    <p>
+                        Next, there's <code class="prettyprint">document.getElementById(...).childNodes[1];</code>. The childNodes
+                        property
+                        is a 0-index based array containing all child nodes within the element from which the property hangs off of. In
+                        the case of the sample above <code>childNodes[1]</code> selects the div element that has a class of "canvas",
+                        and
+                        <code>childNodes[3]</code> selects the div with a class of "log".
+                    </p>
+                    <p>
+                        You might be wondering why these two elements are at index 1 and 3, instead of 0 and 1. Apparently, despite the
+                        fact that
+                        the DOM doesn't render white space, it does recognize that it's there. In the case of this page, I hit "enter"
+                        after every tag,
+                        which resulted in an invisible "text" node being added before every DOM element.
+                    </p>
+                    <p>
+                        Finally, there's the <code>canvas.lastChild</code> which, as the name suggests, returns the last child node of
+                        the canvas element.
+                    </p>
+                    <p>
+                        There is also a <code>Node.firstChild</code> property but, due to the whole "text" node I mentioned earlier, it
+                        doesn't typically lend itself to being useful.
+                    </p>
+                </section>
+                <section id="adding-dom-elements">
+                    <h2>Adding elements to the DOM</h2>
+                    <p>There are two important elements you need in order to add a new element to the DOM.</p>
+                    <p>
+                        First, you need an element to add. In the example above, we're creating a new "div" element
+                        with <code>document.createElement("div");</code>. This returns a new Node object that we can 
+                        use. If you had specific HTML or element attributes you wanted to add, you would then add them 
+                        to this element.
+                    </p>
+                    <p>
+                        And we need somewhere to put our new element, of course. In the demo, we're appending our element
+                        to the canvas element with <code>canvas.appendChild(newDiv);</code>. This, along with some CSS, is what 
+                        allows us to add a new rectangle to the canvas. 
+                    </p>
+                </section>
+                <section id="modifying-dom-elements">
+                    <h2>Modifying DOM elements</h2>
+                    <p>What a broad topic. The demo above modifies DOM elements in three ways.</p>
+                    <p>First, adding new elements is technically modifying the canvas element, but we've already counted that.</p>
+                    <p>Second, we're also removing elements with <code>canvas.lastChild.remove();</code> which is (again) modifying the canvas element.</p>
+                    <p>Finally, we're also changing the text of the "log" div whenever one of the two buttons is pressed 
+                        with <code>log.innerHTML = time + " - " + msg;</code>.</p>
+                </section>
+            </section>
+            <section id="section2">
+                <h1>Media Controls</h1>
+                <p>Javascript</p>
+            </section>
+            <section id="section3">
+                <h1>Canvas & SVG Graphics</h1>
+                <p>Javascript</p>
             </section>
             <section id="summary">
                 <h1>Summary</h1>
@@ -85,7 +183,7 @@
             <footer>
                 <details>
                     <summary>Referenced Sources</summary>
-                    <ol>                    
+                    <ol>
                     </ol>
                 </details>
             </footer>
@@ -95,5 +193,6 @@
         skills covered.
     </footer>
 </body>
-
+<script src="scripts/add-modify-html-elements.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </html>
